@@ -1,16 +1,26 @@
 # dbGymProject
 
-#Lista os usuários
-curl http://localhost:5001/users
+/*COMANDO À EXECUTAR DEPOIS QUE RODAR O BANCO*/
 
-#Adiciona usuários
+/*LISTAR USUÁRIOS*/
+
+curl http://localhost:5001/api/users
+
+/*ADICIONAR USUÁRIOS*/
+
 curl -X POST http://localhost:5001/api/auth/register \
   -H "Content-Type: application/json" \
-  -d '{"username": "testeuser",
-  "email": "teste@exemplo.com",
-  "password": "senha123",
-  "age": 25,
-  "weight": 70,
-  "height": 175,
-  "goal": "Hipertrofia",
-  "availability": "3 dias"}'
+  -d '{"username": "caiotest", "email": "caio@exemplo.com", "password": "senha12", "age": 22, "weight": 80, "height": 168, "goal": "Hipertrofia", "availability": "3 dias"}'
+
+
+/*ATUALIZA O USUÁRIO*/
+
+curl -X PUT http://localhost:5001/api/users/<COLOCA O ID DO USUARIO> \
+  -H "Content-Type: application/json" \
+  -d '{
+    "username": "caioTeste"
+  }'
+
+/*DELETA O USUÁRIO*/
+
+curl -X DELETE http://localhost:5001/api/users/<COLOCA O ID DO USUARIO>
